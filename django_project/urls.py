@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.views.static import serve
+from django.conf.urls  import url
 from django.urls import path , include
 from django.views.generic.base import TemplateView
 from users import views as user_views
@@ -35,7 +37,9 @@ urlpatterns = [
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name=r"users/password_reset_complete.html")  ,name="password_reset_complete"),
     
     path('', include('blog.urls')),
-    
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
