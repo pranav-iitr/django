@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-q81gh0=ih-5e69t+e7b9_#0#@m92y4*^e#vebt6h3f_1w=r++&
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['https://django-blog-ecell.herokuapp.com/']
+ALLOWED_HOSTS = ['django-blog-ecell.herokuapp.com']
 
 
 # Application definition
